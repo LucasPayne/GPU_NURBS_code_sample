@@ -22,18 +22,17 @@ GLSL shaders
 - *quadratic_NURBS.{vert,tcs,tes,geom,frag}*:
 Four shader stages (vertex, tessellation, geometry, and fragment
 processing) are compiled and linked into one GPU program.
-
-- The vertex shader passes data along to the control shader.
-- The tessellation control shader sets constant tessellation parameters
- (determining how many u,v coordinates are generated).
-- The tessellation evaluation shader computes the corresponding point on
- the NURBS surface, then performs the view and projection transformations.
-- The geometry shader expands triangle primitives into three lines each,
- generating a wireframe.
-- The fragment shader outputs constant red.
-The result (alongside the CPU code) is a (non-antialiased) red wireframe
-quadratic NURBS surface with a variable number of patches and arbitrary
-knot vectors.
+  - The vertex shader passes data along to the control shader.
+  - The tessellation control shader sets constant tessellation parameters
+   (determining how many u,v coordinates are generated).
+  - The tessellation evaluation shader computes the corresponding point on
+   the NURBS surface, then performs the view and projection transformations.
+  - The geometry shader expands triangle primitives into three lines each,
+   generating a wireframe.
+  - The fragment shader outputs constant red.
+  The result (alongside the CPU code) is a (non-antialiased) red wireframe
+  quadratic NURBS surface with a variable number of patches and arbitrary
+  knot vectors.
 
 C++ source
 --------------------------------------------------------------------------------
