@@ -48,7 +48,7 @@ This is the essential code sample of the quadratic NURBS demo. This file
 is a project file for my graphics framework (called "cg_sandbox"), which
 this code must be linked to.
 
-A full description of the important steps in the program is below.
+A full description of the important steps in the program is given below.
 - **main**:
   - Initialize an OpenGL context and loop (using my small library "interactive_graphics_context", with a glfw3 backend)
   - Create the cg_sandbox "world" and attach it to the context.
