@@ -37,9 +37,9 @@ knot vectors.
 
 C++ source
 --------------------------------------------------------------------------------
-- *CameraController.cpp*
+- *CameraController.cpp*:
 Mouse view and movement controls to attach to a camera entity.
-- *nurbs_demo.cpp*
+- *nurbs_demo.cpp*:
 This is the essential code sample of the quadratic NURBS demo. This file
 is a project file for my graphics framework (called "cg_sandbox"), which
 this code must be linked to.
