@@ -12,6 +12,9 @@ for high-quality non-polygonal surface rendering?
 The main mathematical reference used in creating this demo is
     The NURBS book, Piegl and Tiller (1997).
 
+![tessellation1](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation1.png?raw=true)
+![tessellation2](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation2.png?raw=true)
+
 Files
 ================================================================================
 shaders
