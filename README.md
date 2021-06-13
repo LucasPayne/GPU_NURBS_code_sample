@@ -2,7 +2,8 @@ GPU_NURBS    code sample - Lucas Payne 2020
 ================================================================================
 Quadratic Non-uniform rational B-splines on the GPU using OpenGL-4 and GLSL.
 Visualized as a moving red wireframe surface, viewable with a fly-around
-controllable camera.
+controllable camera. This is a graphics programming code sample, and will not
+compile without linking with the larger graphics framework.
 
 "NURBS" are a hugely popular surface description used in computer-aided design.
 The real-time rendering of these surface is an interesting problem.
@@ -12,8 +13,7 @@ for high-quality non-polygonal surface rendering?
 The main mathematical reference used in creating this demo is
     The NURBS book, Piegl and Tiller (1997).
 
-![tessellation1](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation1.png?raw=true)
-![tessellation2](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation2.png?raw=true)
+![tessellation](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation.png?raw=true)
 
 Files
 ================================================================================
