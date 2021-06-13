@@ -1,4 +1,4 @@
-GPU_NURBS    code sample - Lucas Payne 2020
+GPU_NURBS code sample
 ================================================================================
 Real-time quadratic Non-uniform rational B-splines on the GPU using OpenGL-4 and GLSL.
 The surface is visualized as a moving red wireframe, viewable with a fly-around
