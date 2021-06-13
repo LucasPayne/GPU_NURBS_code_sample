@@ -41,31 +41,31 @@ knot vectors.
 
 C++ source
 --------------------------------------------------------------------------------
--*CameraController.cpp*
+- *CameraController.cpp*
 Mouse view and movement controls to attach to a camera entity.
--*nurbs_demo.cpp*
+- *nurbs_demo.cpp*
 This is the essential code sample of the quadratic NURBS demo. This file
 is a project file for my graphics framework (called "cg_sandbox"), which
 this code must be linked to.
 
 A full description of the important steps in the program is below.
-- main:
+- **main**:
   - Initialize an OpenGL context and loop (using my small library "interactive_graphics_context", with a glfw3 backend)
   - Create the cg_sandbox "world" and attach it to the context.
   - Create the application.
-- Application initialization:
+- **Application initialization**:
   - Create the camera man entity.
   - Initialize the control net.
   - Create a new entity.
   - Create the DrawableNURBS behaviour, give it the control net, and attach it to the entity.
-- DrawableNURBS initialization:
+- **DrawableNURBS initialization**:
   - Initialize a default knot configuration.
   - Initialize GPU data with OpenGL-4 buffers.
   - Load, compile, and link the 5 shaders into one GPU program.
-- main continued:
+- **main continued**:
   - Enter the overall logic and rendering loop.
   - Each frame, all entity components and behaviours are updated.
-- DrawableNURBS update:
+- **DrawableNURBS update**:
   - Move the control grid and knots around for visual effect.
   - Reupload control grid and knot buffers to the GPU.
   - Render the NURBS surface (upload GPU constants and render into each camera using the compiled shader program).
