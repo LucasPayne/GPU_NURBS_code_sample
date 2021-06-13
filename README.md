@@ -1,5 +1,5 @@
 GPU_NURBS    code sample - Lucas Payne 2020
---------------------------------------------------------------------------------
+================================================================================
 Quadratic Non-uniform rational B-splines on the GPU using OpenGL-4 and GLSL.
 Visualized as a moving red wireframe surface, viewable with a fly-around
 controllable camera.
@@ -13,8 +13,9 @@ The main mathematical reference used in creating this demo is
     The NURBS book, Piegl and Tiller (1997).
 
 Files
---------------------------------------------------------------------------------
+================================================================================
 shaders
+--------------------------------------------------------------------------------
     quadratic_NURBS.vert
     quadratic_NURBS.tcs
     quadratic_NURBS.tes
@@ -35,6 +36,7 @@ shaders
     knot vectors.
 
 C++ source
+--------------------------------------------------------------------------------
     CameraController.cpp
         Mouse view and movement controls to attach to a camera entity.
     nurbs_demo.cpp
