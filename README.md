@@ -1,12 +1,12 @@
 GPU_NURBS    code sample - Lucas Payne 2020
 ================================================================================
 Real-time quadratic Non-uniform rational B-splines on the GPU using OpenGL-4 and GLSL.
-Visualized as a moving red wireframe surface, viewable with a fly-around
+The surface is visualized as a moving red wireframe, viewable with a fly-around
 controllable camera. This is a graphics programming code sample, and will not
 compile without linking with the larger graphics framework.
 
 "NURBS" are a hugely popular surface description used in computer-aided design.
-The real-time rendering of these surface is an interesting problem.
+The real-time rendering of these surfaces is an interesting problem.
 How feasible is it for, e.g., video-games, to use CAD formats directly,
 for high-quality non-polygonal surface rendering?
 
