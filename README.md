@@ -15,7 +15,7 @@ The main mathematical reference used in creating this demo is
 
 ![tessellation](https://github.com/LucasPayne/GPU_NURBS_code_sample/blob/main/images/tessellation.png?raw=true)
 
-Files
+Overview of program structure
 ================================================================================
 shaders
 --------------------------------------------------------------------------------
