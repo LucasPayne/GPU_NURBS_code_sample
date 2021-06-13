@@ -19,10 +19,10 @@ Overview of program structure
 ================================================================================
 GLSL shaders
 --------------------------------------------------------------------------------
-- *quadratic_NURBS.{vert,tcs,tes,geom,frag}*
-
+- *quadratic_NURBS.{vert,tcs,tes,geom,frag}*:
 Four shader stages (vertex, tessellation, geometry, and fragment
 processing) are compiled and linked into one GPU program.
+
 - The vertex shader passes data along to the control shader.
 - The tessellation control shader sets constant tessellation parameters
  (determining how many u,v coordinates are generated).
