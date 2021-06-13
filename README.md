@@ -17,7 +17,7 @@ The main mathematical reference used in creating this demo is
 
 Overview of program structure
 ================================================================================
-shaders
+GLSL shaders
 --------------------------------------------------------------------------------
     quadratic_NURBS.vert
     quadratic_NURBS.tcs
