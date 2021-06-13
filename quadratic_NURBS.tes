@@ -1,0 +1,71 @@
+#version 420
+/*
+    Evaluate a point on the quadratic NURBS and transform it to normalized device coordinates.
+    The knot positions can be irregular, and have been uploaded to a 2D samplerBuffer.
+
+    note: Rational weights are constant here. Full NURBS can be created by adding a fourth component to position
+          and performing a perspective division to 3-space after all other NURBS calculations in 4-space.
+*/
+layout(quads, equal_spacing, ccw) in;
+
+in TCS_OUT {
+    vec3 position;
+} tes_in[];
+
+uniform mat4x4 mvp_matrix;
+uniform int num_vertical_knots;
+uniform samplerBuffer knots;
+
+uniform int num_vertical_patches;
+uniform int num_horizontal_patches;
+
+void main(void)
+{
+    float u = gl_TessCoord.x;
+    float v = gl_TessCoord.y;
+
+    int patch_horiz_index = gl_PrimitiveID % num_horizontal_patches;
+    int patch_vert_index = gl_PrimitiveID / num_horizontal_patches;
+
+    float vertical_knot_window[4];
+    vertical_knot_window[0] = texelFetch(knots, patch_vert_index + 0).r;
+    vertical_knot_window[1] = texelFetch(knots, patch_vert_index + 1).r;
+    vertical_knot_window[2] = texelFetch(knots, patch_vert_index + 2).r;
+    vertical_knot_window[3] = texelFetch(knots, patch_vert_index + 3).r;
+    float va[3];
+    va[0] = vertical_knot_window[1] - vertical_knot_window[0];
+    va[1] = vertical_knot_window[2] - vertical_knot_window[1];
+    va[2] = vertical_knot_window[3] - vertical_knot_window[2];
+    float valpha = va[0] / va[1];
+    float vbeta = va[2] / va[1];
+
+    float horizontal_knot_window[4];
+    horizontal_knot_window[0] = texelFetch(knots, patch_horiz_index + num_vertical_knots + 0).r;
+    horizontal_knot_window[1] = texelFetch(knots, patch_horiz_index + num_vertical_knots + 1).r;
+    horizontal_knot_window[2] = texelFetch(knots, patch_horiz_index + num_vertical_knots + 2).r;
+    horizontal_knot_window[3] = texelFetch(knots, patch_horiz_index + num_vertical_knots + 3).r;
+    float ha[3];
+    ha[0] = horizontal_knot_window[1] - horizontal_knot_window[0];
+    ha[1] = horizontal_knot_window[2] - horizontal_knot_window[1];
+    ha[2] = horizontal_knot_window[3] - horizontal_knot_window[2];
+    float halpha = ha[0] / ha[1];
+    float hbeta = ha[2] / ha[1];
+
+    float tmp1 = 1.0 / (1 + halpha);
+    float tmp2 = 1.0 / (1 + hbeta);
+    float uc1 = (1 - u)*(1 - (u + halpha)*tmp1);
+    float uc2 = (1 - u)*(u + halpha)*tmp1 + u*(1 - u*tmp2);
+    float uc3 = u * u * tmp2;
+    vec3 combined[3];
+    for (int i = 0; i < 3; i++) {
+        combined[i] = uc1*tes_in[3*i + 0].position
+                     +uc2*tes_in[3*i + 1].position
+                     +uc3*tes_in[3*i + 2].position;
+    }
+    tmp1 = 1.0 / (1 + valpha);
+    tmp2 = 1.0 / (1 + vbeta);
+    float vc1 = (1 - v)*(1 - (v + valpha)*tmp1);
+    float vc2 = (1 - v)*(v + valpha)*tmp1 + v*(1 - v*tmp2);
+    float vc3 = v * v * tmp2;
+    gl_Position = mvp_matrix * vec4(vc1*combined[0] + vc2*combined[1] + vc3*combined[2], 1);
+}
